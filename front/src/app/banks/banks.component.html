@@ -1,0 +1,22 @@
+
+
+<H2>Banks Result</H2>
+
+<ul>
+  <li *ngFor="let bank of banks">
+    <a routerLink="/form">name: {{bank.bank}}</a>
+    <p>interest min: {{bank.interestMin}}</p>
+    <p>monthly rate: {{bank.monthlyRate}}</p>
+    <p>Amount: {{bank.totalLoanAmount}}</p>
+
+    <!--"interestMin": 1.89,
+      "interestMax": 4.99,
+      "monthlyRate": 873.63,
+      "totalLoanAmount": 55348.58,
+      "flags": [
+        "videoident",
+        "docupload"
+      ]-->
+
+  </li>
+</ul>

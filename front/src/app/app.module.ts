@@ -8,6 +8,9 @@ import { AppRoutingModule }     from './app-routing.module';
 
 import { BankComponent } from './bank/bank.component';
 import { FormComponent } from './form/form.component';
+import { HttpClientModule } from "@angular/common/http";
+import { BanksService } from "./banks.service";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 
 @NgModule({
@@ -21,10 +24,12 @@ import { FormComponent } from './form/form.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    //HttpClientModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
 
   ],
-  providers: [/*BanksService*/],
+  providers: [BanksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

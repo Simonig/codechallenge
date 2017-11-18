@@ -15,30 +15,27 @@ export class BanksService {
   constructor(private http: HttpClient,) {
   }
 
-  /*getBanks(): Observable<[Bank]> {
+  getBanks(): Observable<[Bank]> {
     return this.http.get<any>(baseUrl + '/api/banks').pipe(
       map(response => response.result),
-      catchError(this.handleError('getHeroes', []))
+      catchError(this.handleError('getBanks', []))
 
-  )
-  };*/
+  )};
 
-  /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   * @param operation - name of the operation that failed
-   * @param result - optional value to return as the observable result
-   */
+  sendForm(form): Observable<string> {
+    return this.http.post<any>(baseUrl +'/api/form', form).pipe(
+      map(response => response),
+      catchError(this.handleError('sendForm', []))
+
+  )};
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
-      // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 
-      // TODO: better job of transforming error for user consumption
       console.log(`${operation} failed: ${error.message}`);
 
-      // Let the app keep running by returning an empty result.
       return of(result as T);
     };
   }
